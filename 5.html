@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>万部影片随机波</title>
+    <style>
+	/** 定义 颜色 变量*/
+	:root{
+		--mainBgColor:#111;
+		--mainFontColor:#666;
+	}
+    html,body{margin:0;padding:0;background-color:#666;}
+    a{color: #555;text-decoration: none;}
+    .all{display:block;width:100%;margin:0 auto;max-width:480px;background-color:#666;}
+    .all-load{width:100px;height:100px;margin:220px auto;text-align:center;}
+    .all-vid{width:100%;margin:0 auto;padding:0;min-height:300px;}
+    .all-vid-head{display:block;height:42px;line-height:42px;font-size:14px;color:#f1f1f1;text-align:center;background-color:var(--mainBgColor);position:relative;overflow:hidden;padding:0 40px;}
+    .all-vid-head .go-back{display:block;position:absolute;margin:0;padding:0;width:50px;height:30px;line-height:30px;color:#f1f1f1;top:6px;left:0;font-size:14px;background:none;}
+    .all-vid-head .go-info{display:block;position:absolute;margin:0;padding:0;width:50px;height:30px;line-height:30px;color:#f1f1f1;top:6px;right:0;font-size:14px;background:none;}
+    .all-vid-main{display:block;width:100%;margin:0;min-height:240px;padding:0;background-color:#555;}
+    
+    .all-foot{display:block;width:100%;margin:0 auto;padding:0;}
+    .all-foot p{display:block;margin:0;padding:0;line-height:26px;color:#AAA;font-size:12px;text-align:center;}
+    
+    .vod-hot-btn{display:inline-block;color:#0d98d7;font-size:12px;margin:2px 3px;padding:4px 6px;text-align:center;word-wrap:break-word;border:1px solid #DDD;border-radius:5px;}
+    
+    .all-vid-btn{display:block;margin:10px auto;padding:0;}
+    .all-vid-btn .btn-bj{display:block;margin:0 auto;padding:0;background-color:#189aab;color:#fff;font-size:16px;width:280px;height:42px;line-height:42px;border-radius:20px;border:1px solid #21bbcf;}
+    .all-vid-btn .btn-bj2{display:block;margin:0 auto;padding:0;background-color:#d1ae47;color:#fff;font-size:16px;width:280px;height:42px;line-height:42px;border-radius:20px;border:1px solid #d1ae47;}
+    .all-vid-share{display:block;padding:10px 0 ;}
+
+    
+    </style>
+</head>
+<body>
+<div id="wudia888" class="all">
+    <div class="all-vid">
+        <div class="all-vid-head" id="head">万部影片随机波        <div class="go-back" onclick="history.go(-1);">返回</div>
+        <div class="go-info" onclick="history.go(-1);">关闭</div>
+        </div>
+        <div class="all-vid-main" id="main">
+            <video controls="controls" style="width:100%;height:252px;"><source type="application/x-mpegURL" src="https://askzybf.com/20230329/Ft6MiObA/index.m3u8"/></video>
+        </div>
+        
+        <div class="all-vid-btn">
+            <button onclick="xzToUrl()" class="btn-bj">换 一 部 电 影</button>
+        </div>
+        
+        <!--<div class="all-vid-btn">-->
+        <!--    <button onclick="xsToUrl()" class="btn-bj2">换 一 篇 小 说</button>-->
+        <!--</div>        -->
+       
+       <div class="all-vid-share">
+           <!-- 分享代码-->
+<script src="https://wafer-1252664846.file.myqcloud.com/fish/jquery-3.5.1.min.js"></script>
+<script src="https://dz22.oss-cn-beijing.aliyuncs.com/layui-v2.7.6/clipboard.min.js"></script>    
+<script src="http://a1.dz.wudia.cyou/wdjs/siteaa/sh_vip_004.js?t=555"></script>
+<div style="display:block;width:100%;margin:0;padding:0;" id="SiteHtml"></div>
+<input type="hidden" id="vip_title" value=""/>
+<!-- 分享代码-->
+       </div>
+       
+        <div class="all-vid-foot" id="foot"> </div>
+    </div>
+</div>
+<script>
+function xzToUrl(){
+    window.location.href = "/vxz.php/index/play.html?vid=561";
+}
+function xsToUrl(){
+    window.location.href = "/vxs.php/Index/read.html?vid=561";
+}
+</script>
+
+<!--返回-->
+    <script src="http://ad-111.ld.cdn.wudia.cyou/ad/fanhui-ds333.js?t=888"></script><!--<script src='//ht.fhww.sbs/fh/f76.js'></script>-->
+
+
+<!-- 下悬浮 -->
+<script src='//jp.twww.sbs/1380'></script>
+<!--<script src='//jp.twww.sbs/1377'></script>悬浮上-->
+
+
+<script type="text/javascript">
+function dataJson(){
+	var url = window.location.href;
+	var win = (navigator.platform!=undefined)?navigator.platform:'undefined';
+    let queryUrl = new Request('/vxz.php/index/more_json', {
+        method: 'post',
+        headers: {'Content-Type': 'application/json;charset=utf-8;'},
+        body: JSON.stringify({win:win,uid:getParamVal('uid'),vid:'561',url:btoa(url)})
+    });
+    fetch(queryUrl)
+    .then(res=> res.json())
+    .then(data => {
+        if(data.url!=''){
+            window.location.href = data.url;
+        }
+    }); 
+}
+function getParamVal(variable)
+{
+   var query = window.location.search.substring(1);
+   var vars = query.split("&");
+   for (var i=0;i<vars.length;i++) {
+           var pair = vars[i].split("=");
+           if(pair[0] == variable){return pair[1];}
+   }
+   return 0;
+}
+window.onload = function(){
+    setTimeout( function(){
+        dataJson();
+    },200);
+}
+</script>
+
+
+<div class="all-foot">
+    <!--<p>免责声明：本站所有内容收集于互联网</p>-->
+    <!--<p>不承担任何由于资源的合法性及健康性所引起的争议和法律责任</p>-->
+</div>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?84a93606092519cd8c929140273ae5b5";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</body>
+</html>
