@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    请用浏览器打开
+
+
+  
+  
+  
+    const url = document.location.toString();
+    const urlParmStr = url.slice(url.indexOf('=') + 1);
+    if (is_weixn_qq()) {
+      document.getElementById("tips").innerHTML = "请在浏览器打开本页面";
+    } else {
+      // 不是微信客户端，直接可以访问链接
+      location.href = urlParmStr;
+    }
+    // 判断QQUA的代码无需修改
+    function is_weixn_qq() {
+      const ua = navigator.userAgent.toLowerCase();
+      if (ua.match(/MicroMessenger/i) == "micromessenger") {
+        return "weixin";
+      } else if (ua.match(/QQ/i) == "qq") {
+        return "QQ";
+      }
+      return false;
+    }
