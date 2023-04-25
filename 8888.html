@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="UTF-8" />
+	<title>新拟态视频播放器</title>
+	<style>
+		body {
+			background-color: #F7F7F7;
+			font-family: Arial, sans-serif;
+		}
+
+		.player {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: 70%;
+			margin: 50px auto;
+			border-radius: 20px;
+			box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+			background-color: #FFFFFF;
+			transition: all 0.3s ease-in-out;
+		}
+
+		.player:hover {
+			transform: scale(1.05);
+			box-shadow: 0px 0px 30px rgba(0,0,0,0.2);
+		}
+
+		.video-container {
+			position: relative;
+			width: 100%;
+			padding-bottom: 56.25%;
+			height: 0;
+			margin-bottom: 20px;
+			overflow: hidden;
+			border-radius: 20px;
+			background-color: #EEEEEE;
+		}
+
+		.video-container iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: none;
+		}
+
+		.controls {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			margin-bottom: 10px;
+		}
+
+		.play-btn, .pause-btn {
+			cursor: pointer;
+			margin-right: 10px;
+			font-size: 24px;
+			color: #555555;
+			transition: all 0.3s ease-in-out;
+		}
+
+		.play-btn:hover, .pause-btn:hover {
+			color: #000000;
+		}
+
+		.night-mode-btn {
+			cursor: pointer;
+			font-size: 24px;
+			color: #555555;
+			transition: all 0.3s ease-in-out;
+		}
+
+		.night-mode-btn:hover {
+			color: #000000;
+		}
+
+		.night-mode-btn i {
+			margin-right: 5px;
+		}
+
+		.night-mode {
+			background-color: #333333;
+			color: #FFFFFF;
+		}
+
+		.night-mode .play-btn, .night-mode .pause-btn, .night-mode .night-mode-btn {
+			color: #FFFFFF;
+		}
+
+		.night-mode .night-mode-btn:hover {
+			color: #CCCCCC;
+		}
+
+		.video-info {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: center;
+			width: 100%;
+			padding: 20px;
+			border-radius: 20px;
+			background-color: #FFFFFF;
+			box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+			margin-bottom: 20px;
+		}
+
+		.video-title {
+			font-size: 24px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+
+		.video-details {
+			font-size: 14px;
+			color: #888888;
+			margin-bottom: 10px;
+		}
+
+		.video-author {
+			font-size: 16px;
+			color: #555555;
+			margin-bottom: 10px;
+		}
+
+		.video-stats {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 100%;
+			font-size: 14px;
+			color: #888888;
+			margin-bottom: 10px;
+		}
+
+		.video-stats span {
+			margin-right: 10px;
+		}
+		.comments {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: center;
+			width: 100%;
+			padding: 20px;
+			border-radius: 20px;
+			background-color: #FFFFFF;
+			box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+		}
+
+		.comment {
+			display: flex;
+			align-items: flex-start;
+			justify-content: flex-start;
+			width: 100%;
+			margin-bottom: 20px;
+		}
+
+		.comment-avatar {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			background-color: #EEEEEE;
+			margin-right: 10px;
+		}
+
+		.comment-details {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: center;
+			width: calc(100% - 60px);
+		}
+
+		.comment-author {
+			font-size: 16px;
+			font-weight: bold;
+			margin-bottom: 5px;
+		}
+
+		.comment-text {
+			font-size: 14px;
+			color: #555555;
+			margin-bottom: 5px;
+		}
+
+		.comment-date {
+			font-size: 12px;
+			color: #888888;
+		}
+
+		.comment-form {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			margin-top: 20px;
+		}
+
+		.comment-input {
+			flex: 1;
+			height: 40px;
+			padding: 10px;
+			border: none;
+			border-radius: 20px;
+			background-color: #EEEEEE;
+			margin-right: 10px;
+			font-size: 14px;
+			color: #555555;
+		}
+
+		.comment-btn {
+			cursor: pointer;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 20px;
+			background-color: #333333;
+			color: #FFFFFF;
+			font-size: 14px;
+			transition: all 0.3s ease-in-out;
+		}
+
+		.comment-btn:hover {
+			background-color: #000000;
+		}
+
+		@media screen and (max-width: 768px) {
+			.player {
+				width: 90%;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="player">
+		<div class="video-container">
+			<iframe src="https://cdn.zxki.cn/tc/2023/02/22/984e6308f23fe.mp4" frameborder="0" allowfullscreen></iframe>
+		</div>
+		<div class="controls">
+			<i class="fas fa-play play-btn"></i>
+			<i class="fas fa-pause pause-btn"></i>
+			<div class="night-mode-btn">
+				<i class="fas fa-moon"></i>
+				<span>嗯...</span>
+			</div>
+		</div>
+		<div class="video-info">
+			<div class="video-title">视频标题</div>
+			<div class="video-details">介绍</div>
+			<div class="video-author">作者</div>
+			<div class="video-stats">
+				<span>1,234,567 次点赞</span>
+				<span>12,345,678 次浏览</span>
+			</div>
+		</div>
+		<div class="comments">
+			<div class="comment">
+				<div class="comment-avatar"></div>
+				<div class="comment-details">
+					<div class="comment-author">老壁灯</div>
+					<div class="comment-text">你干嘛！哎哟</div>
+					<div class="comment-date">两分半前</div>
+				</div>
+			</div>
+			<div class="comment">
+				<div class="comment-avatar"></div>
+				<div class="comment-details">
+					<div class="comment-author">珍德食泥​鸭</div>
+					<div class="comment-text">哇啊真的是你呀哈哈哈哎呀</div>
+					<div class="comment-date">两年半前</div>
+				</div>
+			</div>
+			<form class="comment-form">
+				<input type="text" class="comment-input" placeholder="输入评论内容...">
+				<button type="submit" class="comment-btn">发送评论</button>
+			</form>
+		</div>
+	</div>
+	<script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+	<script src="script.js"></script>
+</body>
+</html>
