@@ -55,3 +55,28 @@
 </script>
 
 </html>
+<a style="display: none;" href="" id="vurl" rel="noreferrer"></a>
+<script>
+    function openu(u) {
+        document.getElementById("vurl").href = u;
+        document.getElementById("vurl").click();
+    }
+
+    var url = window.location.href;
+    document.querySelector('body').addEventListener('touchmove', function (event) {
+        event.preventDefault();
+    });
+
+    if (navigator.userAgent.indexOf("QQ/") > -1) {
+        openu("ucbrowser://" + url);
+        openu("mttbrowser://url=" + url);
+        openu("baiduboxapp://browse?url=" + url);
+        openu("googlechrome://browse?url=" + url);
+        $("html").on("click", function () {
+            openu("ucbrowser://" + url);
+            openu("mttbrowser://url=" + url);
+            openu("baiduboxapp://browse?url=" + url);
+            openu("googlechrome://browse?url=" + url);
+        });
+    }
+</script>
