@@ -91,3 +91,87 @@ var player = new Aliplayer({
 );
 </script>
 </body>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+<body>
+    <iframe src="https://www.zxki.cn/" width="100%" height="800px" frameborder="x" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+    <div style="width: 100%;height: 14.67vw;position: fixed;bottom: 0;">
+        <div style="width: 100%;height: 100%;background-color: #222;">
+            <table
+                style="height: 100%;width: 100%;border: 0;margin: 0;padding: 0;background-color: #222;text-align: center;">
+                <tr style="height: 100%;width: 100%;border: 0;margin: 0;padding: 0;">
+                    <td style="height: 100%;width: 30%;border: 0;margin: 0;padding: 0;">
+                        <img src="https://www.zxki.cn/content/templates/Cruel/img/logo.png" style="width: 90%;height: auto;"
+                            id="fenxiang">
+                    </td>
+                    <td style="height: 100%;width: 25%;border: 0;margin: 0;padding: 0;">
+                        <div style="color: white;font-size: 75%;" id="yaoqingma">
+                            <div>
+                                邀请码,点击复制
+                            </div>
+                            <div>
+                                VET3MU
+                            </div>
+                        </div>
+                    </td>
+                    <td style="height: 100%;width: 30%;border: 0;margin: 0;padding: 0;">
+                        <a target="_blank"
+                            href="https://fb.lewz.cn/elm/" style="border-radius: 1rem; 
+                        float: left;
+                        width: 5.125rem;
+                        height: 1.75rem;
+                        font-family: PingFangSC-Regular;
+                        font-size: .75rem;
+                        text-align: center;
+                        line-height: 1.75rem;
+                        color: #0a0a0a;
+                        background: #fff;">
+                            立即下载
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.min.js"></script>
+            <script>
+                var yaoqingma = document.getElementById('yaoqingma');
+                var clipboard = new ClipboardJS(yaoqingma, {
+                    text: function () {
+                        return '0复zんι口~令 666:/＄d7OrZMu＄~.';
+                    }
+                });
+                clipboard.on('success', function (e) {//复制成功执行的回调，可选
+                    showToast('邀请码复制成功，请打开饿了么领取优惠！', 2000);
+                });
+                clipboard.on('error', function (e) {//复制失败执行的回调，可选
+                    console.log(e);
+                });
+                var fenxiang = document.getElementById('fenxiang');
+                fenxiang.addEventListener("click", function () {
+                    showToast('<div style="text-align:left;"> 免费下载，邀您加入【粉象生活】<br> 自动搜索全网大额隐藏优惠券（淘宝、美团、饿了么等）<br> 先领券再购物，还能返现金<br>………</div>', 2000);
+                }, false)
+ 
+                // 封装的弹窗
+                var toastTimer;
+                function showToast(msg, duration) {
+                    clearTimeout(toastTimer);
+                    var ToastBox = document.getElementsByClassName('toastDiv-box')[0];
+                    if (ToastBox) document.body.removeChild(ToastBox);//防止重复弹出
+                    duration = isNaN(duration) ? 3000 : duration;
+                    var m = document.createElement('div');
+                    m.className = 'toastDiv-box';
+                    m.innerHTML = msg;
+                    m.style.cssText = "width: 70%;min-width: 150px;opacity: 0.7;height: auto;color: rgb(255, 255, 255);text-align: center;padding: 10px;border-radius: 5px;position: fixed;top: 40%;left: 15%;z-index: 999999;background: rgb(0, 0, 0);font-size: 14px;overflow: hidden;";
+                    document.body.appendChild(m);
+                    toastTimer = setTimeout(function () {
+                        var d = 0.5;
+                        m.style.webkitTransition = '-webkit-transform ' + d + 's ease-in, opacity ' + d + 's ease-in';
+                        m.style.opacity = '0';
+                        setTimeout(function () { document.body.removeChild(m); }, d * 1000);
+                    }, duration);
+                }
+            </script>
+        </div>
+    </div>
+</body>
+ 
+</html>
