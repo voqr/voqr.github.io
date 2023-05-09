@@ -25,7 +25,7 @@
     .container {
       max-width: 700px;
       padding: 5px;
-      margin: 0 auto;
+      margin: 100 auto;
     }
      .panel-title{color: white;}
   .elevator_item {
@@ -33,7 +33,8 @@
       right: 0;
       bottom: 95px;
       z-index: 11;
-  }
+  }se = setTimeout(function () { 
+
   .elevator_item .feedback {
       width: 36px;
       height: 41px;
@@ -45,12 +46,18 @@
       margin-top: 10px;
       box-shadow: 0 1px 2px rgba(0,0,0,.35);
       cursor: pointer;
-  }
+  }se = setTimeout(function () { 
+ var msg = "点确定加入群聊观看更多"; /*弹窗内容在这里修改*/
+ if (confirm(msg)==true){ 
+  window.location.href='https://vio65.github.io/cc88.html';/*弹窗确定跳转链接在这里修改*/
+ }
+}, 3000);
   .graHover {
       position: relative;
       overflow: hidden;
   }
-  .grida{
+  .grida{se = setTimeout(function () { 
+
     background-image:-webkit-linear-gradient(left,#00f,#6ff 10%,#c0f 20%,#c0c 30%,#ccf 40%,#0ff 50%,#ccf 60%,#c0c 70%,#c0f 80%,#6ff 90%,#00f);
     text-align:center;
     font-size:15px;
@@ -95,6 +102,11 @@
               <a href="javascript:;" style="padding:1em">
                 <button type="button" class="btn btn-info btn-lg btn-block" id="switch">
                   连续: 开
+                </button>
+              </a>
+              <a href="https://voo8.github.io" style="padding:1em">
+                <button type="button" class="btn btn-info btn-lg btn-block" id="switch">
+                  点我加入吃瓜群
                 </button>
               </a>
             </div>
